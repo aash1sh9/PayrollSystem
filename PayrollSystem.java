@@ -47,6 +47,7 @@ class FullTimeEmployee extends Employee {
 
     @Override
     public double calculateSalary() { return baseSalary + bonus + allowances; }
+    // Example: baseSalary=40000, bonus=8000, allowances=2000 → 40000 + 8000 + 2000 = 50000.00
 
     @Override
     public String getEmployeeType() { return "Full-Time"; }
@@ -65,6 +66,7 @@ class PartTimeEmployee extends Employee {
 
     @Override
     public double calculateSalary() { return hoursWorked * hourlyRate; }
+    // Example: hoursWorked=160, hourlyRate=75.0 → 160 * 75 = 12000.00
 
     @Override
     public String getEmployeeType() { return "Part-Time"; }
@@ -80,16 +82,43 @@ public class PayrollSystem {
         }
         return highest;
     }
+    // Example: compares 50000.00 vs 12000.00 → returns Rahul
 
     public static void main(String[] args) {
         List<Employee> employees = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
+        // OUTPUT:
+        // === Employee Payroll Management System ===
+
         System.out.println("=== Employee Payroll Management System ===\n");
+
+        // OUTPUT:
+        // How many employees to add?
+        // User types: 2
+
         System.out.print("How many employees to add? ");
         int n = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
+
+            // OUTPUT (i=0):
+            // Employee 1
+            // Name: Rahul
+            // ID: 101
+            // Type (1=FullTime, 2=PartTime): 1
+            // Base Salary: 40000
+            // Bonus: 8000
+            // Allowances: 2000
+
+            // OUTPUT (i=1):
+            // Employee 2
+            // Name: Priya
+            // ID: 102
+            // Type (1=FullTime, 2=PartTime): 2
+            // Hours Worked: 160
+            // Hourly Rate: 75
+
             System.out.println("\nEmployee " + (i + 1));
             System.out.print("Name: ");
             String name = sc.next();
@@ -115,12 +144,30 @@ public class PayrollSystem {
             }
         }
 
+        // OUTPUT:
+        // ----------- PAYROLL DETAILS -----------
+
         System.out.println("\n----------- PAYROLL DETAILS -----------");
+
         double totalPayroll = 0;
         for (Employee e : employees) {
+
+            // OUTPUT (e1 - FullTimeEmployee):
+            // Name: Rahul     | ID: 101 | Type: Full-Time  | Salary: Rs.50000.00
+
+            // OUTPUT (e2 - PartTimeEmployee):
+            // Name: Priya     | ID: 102 | Type: Part-Time  | Salary: Rs.12000.00
+
             System.out.println(e);
             totalPayroll += e.calculateSalary();
         }
+
+        // OUTPUT:
+        // ----------- PAYROLL SUMMARY -----------
+        // Total Employees  : 2
+        // Total Payroll    : Rs.62000.00
+        // Average Salary   : Rs.31000.00
+        // Highest Paid     : Rahul (Rs.50000.00)
 
         System.out.println("\n----------- PAYROLL SUMMARY -----------");
         System.out.println("Total Employees  : " + employees.size());
