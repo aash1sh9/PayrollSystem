@@ -1,42 +1,40 @@
 // Employee Payroll Management System
-// Demonstrates Inheritance, Polymorphism, Method Overriding
+// Updated: June 2026 | Demonstrates Inheritance, Polymorphism, Collections, Validation
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+// Abstract Base Class
 abstract class Employee {
     private String name;
     private int id;
     protected double baseSalary;
 
-    // Constructor
     public Employee(String name, int id, double baseSalary) {
+        if (name == null || name.isEmpty()) throw new IllegalArgumentException("Name cannot be empty");
+        if (id <= 0) throw new IllegalArgumentException("ID must be positive");
+        if (baseSalary < 0) throw new IllegalArgumentException("Salary cannot be negative");
         this.name = name;
         this.id = id;
         this.baseSalary = baseSalary;
     }
 
-    // Getters
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
+    public int getId() { return id; }
+    public double getBaseSalary() { return baseSalary; }
 
-    public int getId() {
-        return id;
-    }
-
-    public double getBaseSalary() {
-        return baseSalary;
-    }
-
-    // Abstract Method (Polymorphism)
     public abstract double calculateSalary();
+    public abstract String getEmployeeType();
 
     @Override
     public String toString() {
-        return "Name: " + name + " | ID: " + id;
+        return String.format("Name: %-10s | ID: %03d | Type: %-10s | Salary: Rs.%.2f",
+            name, id, getEmployeeType(), calculateSalary());
     }
 }
 
-
-// Full-Time Employee Class
+// Full-Time Employee
 class FullTimeEmployee extends Employee {
     private double bonus;
     private double allowances;
@@ -48,18 +46,13 @@ class FullTimeEmployee extends Employee {
     }
 
     @Override
-    public double calculateSalary() {
-        return baseSalary + bonus + allowances;
-    }
+    public double calculateSalary() { return baseSalary + bonus + allowances; }
 
     @Override
-    public String toString() {
-        return super.toString() + " | Type: Full-Time | Salary: " + calculateSalary();
-    }
+    public String getEmployeeType() { return "Full-Time"; }
 }
 
-
-// Part-Time Employee Class
+// Part-Time Employee
 class PartTimeEmployee extends Employee {
     private int hoursWorked;
     private double hourlyRate;
@@ -71,39 +64,71 @@ class PartTimeEmployee extends Employee {
     }
 
     @Override
-    public double calculateSalary() {
-        return hoursWorked * hourlyRate;
-    }
+    public double calculateSalary() { return hoursWorked * hourlyRate; }
 
     @Override
-    public String toString() {
-        return super.toString() + " | Type: Part-Time | Salary: " + calculateSalary();
-    }
+    public String getEmployeeType() { return "Part-Time"; }
 }
-
 
 // Main Class
 public class PayrollSystem {
+
+    public static Employee getHighestPaid(List<Employee> employees) {
+        Employee highest = employees.get(0);
+        for (Employee e : employees) {
+            if (e.calculateSalary() > highest.calculateSalary()) highest = e;
+        }
+        return highest;
+    }
+
     public static void main(String[] args) {
+        List<Employee> employees = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("=== Employee Payroll Management System ===\n");
+        System.out.print("How many employees to add? ");
+        int n = sc.nextInt();
 
-        // Creating Employees (Polymorphism)
-        Employee e1 = new FullTimeEmployee("Rahul", 101, 40000, 8000, 2000);
-        Employee e2 = new PartTimeEmployee("Priya", 102, 160, 75);
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nEmployee " + (i + 1));
+            System.out.print("Name: ");
+            String name = sc.next();
+            System.out.print("ID: ");
+            int id = sc.nextInt();
+            System.out.print("Type (1=FullTime, 2=PartTime): ");
+            int type = sc.nextInt();
 
+            if (type == 1) {
+                System.out.print("Base Salary: ");
+                double base = sc.nextDouble();
+                System.out.print("Bonus: ");
+                double bonus = sc.nextDouble();
+                System.out.print("Allowances: ");
+                double allowances = sc.nextDouble();
+                employees.add(new FullTimeEmployee(name, id, base, bonus, allowances));
+            } else {
+                System.out.print("Hours Worked: ");
+                int hours = sc.nextInt();
+                System.out.print("Hourly Rate: ");
+                double rate = sc.nextDouble();
+                employees.add(new PartTimeEmployee(name, id, hours, rate));
+            }
+        }
+
+        System.out.println("\n----------- PAYROLL DETAILS -----------");
         double totalPayroll = 0;
+        for (Employee e : employees) {
+            System.out.println(e);
+            totalPayroll += e.calculateSalary();
+        }
 
-        // Display Details
-        System.out.println(e1);
-        System.out.println(e2);
+        System.out.println("\n----------- PAYROLL SUMMARY -----------");
+        System.out.println("Total Employees  : " + employees.size());
+        System.out.printf("Total Payroll    : Rs.%.2f%n", totalPayroll);
+        System.out.printf("Average Salary   : Rs.%.2f%n", totalPayroll / employees.size());
+        System.out.println("Highest Paid     : " + getHighestPaid(employees).getName()
+            + " (Rs." + String.format("%.2f", getHighestPaid(employees).calculateSalary()) + ")");
 
-        totalPayroll += e1.calculateSalary();
-        totalPayroll += e2.calculateSalary();
-
-        // Summary
-        System.out.println("\n----- PAYROLL SUMMARY -----");
-        System.out.println("Total Employees : 2");
-        System.out.println("Total Payroll   : " + totalPayroll);
+        sc.close();
     }
 }
