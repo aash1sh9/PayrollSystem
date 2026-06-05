@@ -112,7 +112,7 @@ Total Payroll     :  62000.0
 B.Tech CSE (in association with Google)  
 Rungta International Skills University, Bhilai
 
-[![GitHub](https://img.shields.io/badge/GitHub-notash9-black?style=flat-square&logo=github)](https://github.com/notash9)
+[![GitHub](https://img.shields.io/badge/GitHub-notash9-black?style=flat-square&logo=github)](https://github.com/aash1sh9)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-aashish--raj-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/aashish-raj-a27120362)
 
 ---
