@@ -2,11 +2,11 @@
 
 > built with core java. oop under the hood — inheritance, polymorphism, constructor chaining.
 
-![Java](https://img.shields.io/badge/Java-JDK%208%2B-black?style=flat-square&logo=openjdk&logoColor=white)
-![OOP](https://img.shields.io/badge/Paradigm-OOP-black?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Completed-black?style=flat-square)
-![License](https://img.shields.io/badge/License-Academic-black?style=flat-square)
-![Views](https://komarev.com/ghpvc/?username=aash1sh9&label=project+views&style=flat-square&color=grey)
+![Java](https://img.shields.io/badge/Java-CC0000?style=flat-square&logo=openjdk&logoColor=white)
+![OOP](https://img.shields.io/badge/Paradigm-OOP-8B0000?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Completed-B22222?style=flat-square)
+![License](https://img.shields.io/badge/License-Academic-F5F0EB?style=flat-square&logoColor=black)
+![Views](https://komarev.com/ghpvc/?username=aash1sh9&label=project+views&style=flat-square&color=CC0000)
 
 ---
 
@@ -15,6 +15,16 @@
 payroll system for two employee types — full-time and part-time.
 built as part of OOP with Java coursework at Rungta International Skills University.
 clean class hierarchy, polymorphic dispatch, nothing overcomplicated.
+
+---
+
+## tech stack
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![JDK](https://img.shields.io/badge/JDK_8+-007396?style=for-the-badge&logo=openjdk&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
 
 ---
 
@@ -101,9 +111,9 @@ Total Payroll     :  62000.0
 
 used this? found a bug? just vibing?
 
-[![Leave a Remark](https://img.shields.io/badge/leave%20a%20remark-%E2%86%92-black?style=flat-square)](https://github.com/aash1sh9/employee-payroll-system/issues/new?title=Remark&labels=remark&body=%F0%9F%91%8B+Hey+Ash%2C%0A%0A**What+brought+you+here%3F**%0A%0A**Your+thoughts+on+the+project%3A**%0A%0A**Suggestions+%2F+feedback%3A**%0A%0A---%0AThanks+for+stopping+by!)
+[![Leave a Remark](https://img.shields.io/badge/leave%20a%20remark-%E2%86%92-CC0000?style=for-the-badge)](https://github.com/aash1sh9/employee-payroll-system/issues/new?title=Remark&labels=remark&body=%F0%9F%91%8B+Hey+Ash%2C%0A%0A**What+brought+you+here%3F**%0A%0A**Your+thoughts+on+the+project%3A**%0A%0A**Suggestions+%2F+feedback%3A**%0A%0A---%0AThanks+for+stopping+by!)
 
-> click the badge → GitHub issue opens → drop your thoughts. takes 30 seconds.
+> click → github issue opens → drop your thoughts. 30 seconds.
 
 ---
 
@@ -112,8 +122,8 @@ used this? found a bug? just vibing?
 **Aashish Raj** · `RU-25-10016`
 B.Tech CSE · Rungta International Skills University, Bhilai
 
-[![GitHub](https://img.shields.io/badge/GitHub-aash1sh9-black?style=flat-square&logo=github&logoColor=white)](https://github.com/aash1sh9)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-aashish--raj-black?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/aashish-raj-a27120362)
+[![GitHub](https://img.shields.io/badge/GitHub-aash1sh9-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/aash1sh9)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-aashish--raj-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/aashish-raj-a27120362)
 
 ---
 
